@@ -1,0 +1,77 @@
+import Shuflle from "./assets/Images/shuffle.svg";
+import Android from "./assets/Images/android-chrome-192x192.png";
+import { useState } from "react";
+
+import {
+  Background,
+  BoxBody,
+  ImgLogo,
+  ImgCapa,
+  ImgButton,
+  FilmName,
+  Boxall,
+  Boxdescrition,
+  H1,
+  Button,
+  P,
+  Descrition,
+} from "./App";
+
+const Page = () => {
+  const [currentMovieIndex, setCurrentMovieIndex] = useState(0);
+  const [movies, setMovies] = useState([]);
+
+  const fetchMovies = async () => {
+    try {
+      const response = await fetch(
+        "https://api.themoviedb.org/3/movie/top_rated?api_key=c5ae7b435c80c3e1a95b75ea79d5ffca",
+        {
+          method: "GET",
+        }
+      );
+      const data = await response.json();
+      setMovies(data.results);
+      setCurrentMovieIndex((prevIndex) => prevIndex + 1);
+    } catch (error) {
+      console.error("Erro ao buscar filmes:", error);
+    }
+  };
+
+  return (
+    <>
+      <Background>
+        <BoxBody>
+          <ImgLogo src={Android} alt="Logo" />
+          <H1>Não sabe o que assistir?</H1>
+          <Boxall>
+            {movies.length > 0 && (
+              <>
+                <ImgCapa
+                  src={`https://image.tmdb.org/t/p/w500${movies[currentMovieIndex].poster_path}`}
+                  alt="Capa do filme"
+                />
+                <Boxdescrition>
+                  <FilmName>
+                    {movies[currentMovieIndex].original_title}
+                  </FilmName>
+                  <Descrition>{movies[currentMovieIndex].overview}</Descrition>
+                </Boxdescrition>
+              </>
+            )}
+          </Boxall>
+          <Button onClick={fetchMovies}>
+            <ImgButton src={Shuflle} alt="img button" />
+            Encontrar Filme
+          </Button>
+
+          <P>
+            Clique em "Encontrar filme" que traremos informações de algum filme
+            para você assistir hoje.
+          </P>
+        </BoxBody>
+      </Background>
+    </>
+  );
+};
+
+export default Page;
