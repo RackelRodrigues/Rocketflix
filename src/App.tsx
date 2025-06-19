@@ -1,9 +1,9 @@
-import Shuflle from "./assets/Images/shuffle.svg";
-import Android from "./assets/Images/android-chrome-192x192.png";
+// import Shuffle from "./assets/images/shuffle.svg";
+// import Android from "./assets/images/Android.png";
 import { useState } from "react";
 
 import {
-  Background,
+  Container,
   BoxBody,
   ImgLogo,
   ImgCapa,
@@ -15,11 +15,17 @@ import {
   Button,
   P,
   Descrition,
-} from "./App";
+} from "./appStyled";
 
-const Page = () => {
+type Movie = {
+  original_title: string;
+  poster_path: string;
+  overview: string;
+};
+
+const App = () => {
   const [currentMovieIndex, setCurrentMovieIndex] = useState(0);
-  const [movies, setMovies] = useState([]);
+  const [movies, setMovies] = useState<Movie[]>([]);
 
   const fetchMovies = async () => {
     try {
@@ -39,9 +45,9 @@ const Page = () => {
 
   return (
     <>
-      <Background>
+      <Container isData={movies.length > 0}>
         <BoxBody>
-          <ImgLogo src={Android} alt="Logo" />
+          <ImgLogo src="./src/assets/images/Android.png" alt="Logo" />
           <H1>Não sabe o que assistir?</H1>
           <Boxall>
             {movies.length > 0 && (
@@ -60,7 +66,7 @@ const Page = () => {
             )}
           </Boxall>
           <Button onClick={fetchMovies}>
-            <ImgButton src={Shuflle} alt="img button" />
+            <ImgButton src="./src/assets/images/shuffle.svg" alt="img button" />
             Encontrar Filme
           </Button>
 
@@ -69,9 +75,9 @@ const Page = () => {
             para você assistir hoje.
           </P>
         </BoxBody>
-      </Background>
+      </Container>
     </>
   );
 };
 
-export default Page;
+export default App;

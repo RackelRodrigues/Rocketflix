@@ -1,14 +1,23 @@
 import styled from "styled-components";
 
-export const Background = styled.div`
+interface Props {
+  isData?: boolean;
+}
+
+export const Container = styled.div<Props>`
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  background-color: transparent;
 
-  @media (max-width: 500px) {
-    width: 100%;
-    height: 100%;
+  @media screen and (min-width: 610px) and (max-width: 1023px) {
+    height: ${({ isData }) => (isData ? "100%" : "100vh")};
+    padding: 1rem 0;
+  }
+
+  @media screen and (max-width: 609px) {
+    height: ${({ isData }) => (isData ? "100%" : "90vh")};
     padding: 2rem 0;
   }
 `;
@@ -18,6 +27,7 @@ export const BoxBody = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: transparent;
 `;
 
 export const ImgLogo = styled.img`
@@ -104,6 +114,12 @@ export const H1 = styled.h1`
 
   @media (min-width: 600px) and (max-width: 1024px) {
     font-size: 4rem;
+    text-align: center;
+  }
+
+  @media (max-width: 500px) {
+    text-align: center;
+    font-size: 25px;
   }
 `;
 
@@ -121,7 +137,8 @@ export const Button = styled.button`
   justify-content: center;
   margin-bottom: 30px;
   border-radius: 0.4rem;
-
+  /* display: block; */
+  cursor: pointer;
   @media (max-width: 500px) {
     width: 180px;
     height: 47px;
@@ -147,7 +164,6 @@ export const P = styled.p`
   @media (max-width: 500px) {
     font-size: 1rem;
     font-style: normal;
-    width: 25rem;
-    /* margin-bottom: 20px; */
+    width: 20rem;
   }
 `;
