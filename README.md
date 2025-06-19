@@ -17,4 +17,4 @@ Rocketflix é uma aplicação web que sugere filmes aleatórios ao clicar em um 
 
 ## 📸 Demonstração
 
-![Demo do Rocketflix](<![Image](https://github.com/user-attachments/assets/964a5d3b-2d54-46f6-907b-9376546e69a7)>)
+![Demo do Rocketflix](https://github.com/user-attachments/assets/964a5d3b-2d54-46f6-907b-9376546e69a7)
