@@ -1,6 +1,5 @@
-// import shuffle from "./assets/images/shuffle.svg";
+import shuffle from "./assets/images/shuffle.svg";
 import { useState } from "react";
-import android from "./assets/images/android.png";
 
 import {
   Container,
@@ -47,7 +46,7 @@ const App = () => {
     <>
       <Container isData={movies.length > 0}>
         <BoxBody>
-          <ImgLogo src={android} alt="Logo" />
+          <ImgLogo src={shuffle} alt="Logo" />
           <H1>Não sabe o que assistir?</H1>
           <Boxall>
             {movies.length > 0 && (
@@ -66,7 +65,7 @@ const App = () => {
             )}
           </Boxall>
           <Button onClick={fetchMovies}>
-            <ImgButton src={android} alt="img button" />
+            <ImgButton src={shuffle} alt="img button" />
             Encontrar Filme
           </Button>
 
