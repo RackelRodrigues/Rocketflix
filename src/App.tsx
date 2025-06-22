@@ -1,5 +1,4 @@
-import Shuffle from "./assets/images/shuffle.svg";
-// import Android from "./assets/images/Android.png";
+import ShuffleIcon from "./assets/images/shuffle.svg";
 import { useState } from "react";
 import Android from "./assets/images/Android.png";
 
@@ -67,7 +66,7 @@ const App = () => {
             )}
           </Boxall>
           <Button onClick={fetchMovies}>
-            <ImgButton src={Shuffle} alt="img button" />
+            <ImgButton src={ShuffleIcon} alt="img button" />
             Encontrar Filme
           </Button>
 
