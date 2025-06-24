@@ -36,7 +36,9 @@ const App = () => {
       );
       const data = await response.json();
       setMovies(data.results);
-      setCurrentMovieIndex((prevIndex) => prevIndex + 1);
+      setCurrentMovieIndex((prevIndex) =>
+        prevIndex + 1 >= movies.length ? 0 : prevIndex + 1
+      );
     } catch (error) {
       console.error("Erro ao buscar filmes:", error);
     }

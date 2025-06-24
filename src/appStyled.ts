@@ -63,6 +63,7 @@ export const FilmName = styled.h4`
   margin-top: 20px;
   @media (max-width: 500px) {
     font-size: 1rem;
+    text-align: center;
   }
 `;
 
@@ -77,7 +78,9 @@ export const Descrition = styled.p`
 
   @media (max-width: 500px) {
     width: 300px;
+    height: 100%;
     font-size: 1.2rem;
+    margin-bottom: 0.5rem;
   }
 `;
 
@@ -137,7 +140,6 @@ export const Button = styled.button`
   justify-content: center;
   margin-bottom: 30px;
   border-radius: 0.4rem;
-  /* display: block; */
   cursor: pointer;
   @media (max-width: 500px) {
     width: 180px;
