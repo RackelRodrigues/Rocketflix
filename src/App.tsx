@@ -55,7 +55,7 @@ const App = () => {
               <>
                 <ImgCapa
                   src={`https://image.tmdb.org/t/p/w500${movies[currentMovieIndex].poster_path}`}
-                  alt="Capa do filme"
+                  alt={movies[currentMovieIndex].original_title}
                 />
                 <Boxdescrition>
                   <FilmName>
